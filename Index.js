@@ -12,6 +12,9 @@ app.use('/api/v1', route);
  
 // Databasr connection
 const DBconnect = require('./DBconnect');  
+app.get('/api/v1', (req, res) => {
+    res.send("HELLO WORLD");
+})
 DBconnect();
 app.listen(PORT,() => {
     console.log(`Server is Running on PORT:${PORT}`);
