@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const DBconnect=() => {
-   mongoose.connect("mongodb://localhost:27017/gofood",{
+   mongoose.connect("mongodb+srv://AnkitMod:ec9ObUNKLHVqgWge@ankitcluster.e47tu6x.mongodb.net/FoodApp",{
  
        useUnifiedTopology: true, 
        useNewUrlParser: true,
