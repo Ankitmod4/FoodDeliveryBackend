@@ -24,7 +24,7 @@ router.get('/cartget/:id',GetCartById );
 router.put('/cartupdate/:id',UpdateCart ); 
 router.delete('/cartdelete/:id', DeleteCart); 
 router.post('/ordercart', OrderCart);
-router.get('/previousorder', PreviousCart);
+router.post('/previousorder', PreviousCart);
 
 module.exports = router; 
 
