@@ -12,11 +12,11 @@ const { PreviousCart } = require('../Controllers/PreviousCart');
 
 const router = express.Router();  
 router.post('/signupdata', [body('email').isEmail(),
-    body('name').isLength({min:5}), 
-    body('password').isLength({min:5})  
+    body('name').isLength({min:3}), 
+    body('password').isLength({min:8})   
 ], PostData); 
 router.post('/logindata',[body('email').isEmail(), 
-body('password').isLength({min:5})   
+body('password').isLength({min:8})   
 ], LoginData);
 router.post('/cartadd', AddCart); 
 router.get('/cartget',GetCart );  
