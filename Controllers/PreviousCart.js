@@ -1,19 +1,18 @@
-let Caart = require('../Model/Cart');
+let order = require('../Model/Order');
 
-
-exports.PreviousCart = (req,res) => {
+exports.PreviousCart = async(req,res) => {
     try {
         const { email } = req.body;
         if (!email) {
-            res.status(500).json({ 
+           return res.status(500).json({
                 success: false,
                 message:"This is your First Order"
             })
         }
-        let res = Caart.find({ email })
+        let cartItems = await order.find({ email })
         res.status(200).json({
             success: true,
-            data: res,
+            data: cartItems,
             message:"Order find Successfully"
         })
     }
@@ -21,7 +20,7 @@ exports.PreviousCart = (req,res) => {
         res.status(500).json({
             success: false,
             data: "Error occured",
-            message:error.message
+            message:error.message,
         })
 
     }
