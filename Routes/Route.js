@@ -7,20 +7,14 @@ const {UpdateCart } = require('../Controllers/UpdateCart');
 const { DeleteCart } = require('../Controllers/DeleteCart');
 const { body, validationResult } = require('express-validator');
 const { OrderCart } = require('../Controllers/OrdeCart');
+const { PreviousCart } = require('../Controllers/PreviousCart');
 
 
-
-const router = express.Router(); 
-
-
-
-
-
+const router = express.Router();  
 router.post('/signupdata', [body('email').isEmail(),
     body('name').isLength({min:5}), 
     body('password').isLength({min:5})  
 ], PostData); 
- 
 router.post('/logindata',[body('email').isEmail(), 
 body('password').isLength({min:5})   
 ], LoginData);
@@ -28,8 +22,9 @@ router.post('/cartadd', AddCart);
 router.get('/cartget',GetCart );  
 router.get('/cartget/:id',GetCartById );  
 router.put('/cartupdate/:id',UpdateCart ); 
-router.delete('/cartdelete/:id', DeleteCart)  
+router.delete('/cartdelete/:id', DeleteCart); 
 router.post('/ordercart', OrderCart);
+router.post('/previousorder', PreviousCart);
 
 module.exports = router; 
 
